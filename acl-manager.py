@@ -245,6 +245,7 @@ def UpdateACLs(device,acllist,aclfolder):
 							FullOutput = sshnet_connect.send_config_set(ListOfCommands)
 					else:
 						print 'Error with getting local DB copy for ' + interfacename + '. Skipping...'
+			sshnet_connect.send_command('copy run start')
 		sshnet_connect.disconnect()
 	except Exception as e:
 		print 'Error with sending commands to ' + deviceip + '. Error is ' + str(e)
